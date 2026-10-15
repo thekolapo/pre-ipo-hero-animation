@@ -147,12 +147,13 @@ const updateCardTilt = (event) => {
   if (event.pointerType === "touch") return;
 
   const card = event.currentTarget;
+  const maxTiltDegrees = 4.2;
   const bounds = card.getBoundingClientRect();
   const x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
   const y = ((event.clientY - bounds.top) / bounds.height) * 2 - 1;
 
-  card.style.setProperty("--card-tilt-x", `${-y * 3}deg`);
-  card.style.setProperty("--card-tilt-y", `${x * 3}deg`);
+  card.style.setProperty("--card-tilt-x", `${-y * maxTiltDegrees}deg`);
+  card.style.setProperty("--card-tilt-y", `${x * maxTiltDegrees}deg`);
 };
 
 const resetCardTilt = (event) => {
